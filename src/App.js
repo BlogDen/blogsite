@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import Home from "./pages/Home";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
+import CreateBlog from "./pages/CreateBlog";
+import Navbar from "./components/Navbar";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import BlogView from "./pages/BlogView";
+import { useContext } from 'react'
+import { AuthContext } from "./context/AuthContext";
+import Page404 from "./pages/Page404";
+import OwnBlogs from "./pages/OwnBlogs";
+
 
 function App() {
+
+  const { user } = useContext(AuthContext);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App ">
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
+          <Route path="/own-blogs" element={<OwnBlogs />} />
+          <Route path="/blogview/:id" element={user ? <BlogView /> : <Navigate to="/login" />} />
+          <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />} />
+          <Route path="/signup" element={!user ? <Signup /> : <Navigate to="/" />} />
+          <Route path="/create" element={<CreateBlog />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

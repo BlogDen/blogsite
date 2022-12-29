@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+
+.blogview-complete-page {
+    width: 100%;
+    margin: 35px 0;
+    /* background-color: blueviolet; */
+}
+
+.indiv-blog {
+    /* background-color: bisque; */
+    max-width: 820px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 22px 4px rgba(145, 145, 145, 1);
+}
+
+.blog-header-img-cont {
+    height: 300px;
+}
+
+.blog-header-img-cont img {
+    height: 100%;
+    width: 100%;
+}
+
+.indiv-blog section {
+    padding: 5px 25px;
+}
+
+.blog-author-info {
+    display: flex;
+    margin: 25px 0 15px 0;
+}
+
+.blog-author-info img {
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.blog-author-info .author-name {
+    font-size: 15px;
+}
+
+.blog-author-info .posted-date {
+    font-size: 13px;
+    color: rgb(93, 93, 93);
+}
+
+.blog-title {
+    font-size: 48px;
+    font-family: 'Montserrat';
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}

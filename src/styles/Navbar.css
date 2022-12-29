@@ -1,0 +1,45 @@
+/* style={{ "backgroundColor": "#0a192f", "color": "white", "padding": "20px 10px", "display": "flex", "justifyContent": "space-around" }} */
+
+.navbar {
+    background-color: #393246;
+    color: white;
+    padding: 20px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+a {
+    /* color: white; */
+    text-decoration: none;
+    color: white;
+}
+
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+
+}
+
+.link-box {
+    position: absolute;
+    font-size: 15px;
+    color: black;
+    background-color: rgb(234, 231, 231);
+    top: 22px;
+    width: 80%;
+    /* margin-left: -50px; */
+}
+
+.link-box a {
+    color: black;
+    line-height: 30px;
+}
+
+.dropdown-btn {
+    cursor: pointer;
+    border: none;
+    padding: 3px 10px;
+    margin-right: 70px;
+}
