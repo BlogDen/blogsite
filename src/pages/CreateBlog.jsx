@@ -21,7 +21,6 @@ function CreateBlog() {
     const { user } = useContext(AuthContext)
 
     useEffect(() => {
-
         //setTimout can be used here as the user is picked from local storage if it exists. So internet speed won't affect the results
         const timer = setTimeout(() => {
             if (!user) {
@@ -29,7 +28,6 @@ function CreateBlog() {
             }
         }, 300);
         return () => clearTimeout(timer);
-
     }, [user])
 
     const handleSubmit = (e) => {

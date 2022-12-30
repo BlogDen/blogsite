@@ -1,9 +1,11 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect, useContext, useState } from 'react'
 import BlogCard from '../components/BlogCard';
 import { AuthContext } from '../context/AuthContext';
 import { BlogsContext } from '../context/BlogContext'
 import { useNavigate } from "react-router-dom";
 import config from "../config";
+import ClipLoader from "react-spinners/ClipLoader";
+
 
 function OwnBlogs() {
     const baseURL = process.env.NODE_ENV === 'production' ? config.production : config.local;
@@ -15,6 +17,7 @@ function OwnBlogs() {
     // const [blogs, setBlogs] = useState([]);
     const { blogs, dispatch } = useContext(BlogsContext);
     const { user } = useContext(AuthContext);
+    const [isLoading, setIsLoading] = useState(false);
 
 
     useEffect(() => {
@@ -32,6 +35,8 @@ function OwnBlogs() {
     useEffect(() => {
 
         const dataLoad = async () => {
+            setIsLoading(true);
+
             const response = await fetch(`${baseURL}/api/blogs/own-blogs`, {
                 // const response = await fetch('https://blog-server-llqa.onrender.com/api/blogs/own-blogs', {
                 headers: {
@@ -43,6 +48,8 @@ function OwnBlogs() {
             if (response.ok) {
                 // setBlogs(data.Blogs)
                 dispatch({ type: 'SET_BLOGS', payload: data.Blogs });
+                setIsLoading(false);
+
             }
         }
         if (user) {
@@ -52,16 +59,34 @@ function OwnBlogs() {
 
     }, [user])
 
+    const override = {
+        display: "block",
+        margin: "0 auto",
+        marginTop: "25vh"
+    };
+
     return (
         <div>
-            <h1>OwnBlogs</h1>
-            <div style={{ "maxWidth": "800px", "margin": "0 auto " }} >
-                {
-                    blogs && (
-                        blogs.map((singleData) => <BlogCard singleData={singleData} />)
-                    )
-                }
-            </div>
+
+            {
+                isLoading ? <div className='dud'>
+                    <ClipLoader aria-label="Loading Spinner" cssOverride={override} color={'#ca3434'} size={150} />
+                </div> : (
+                    <>
+                        <h1>OwnBlogs</h1>
+                        <div style={{ "maxWidth": "800px", "margin": "0 auto " }} >
+                            {
+                                blogs && (
+                                    blogs.map((singleData) => <BlogCard singleData={singleData} />)
+                                )
+                            }
+                        </div>
+                    </>
+                )
+            }
+
+
+
 
         </div>
     )
