@@ -1,0 +1,43 @@
+.signup-container {
+    margin: 20px;
+}
+
+.signup-content {
+    max-width: 650px;
+    margin: 0 auto;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.signup-content h1 {
+    margin: 0 0 40px 10px;
+    font-size: 50px;
+}
+
+.signup-content input {
+    border: none;
+    background: transparent;
+    outline: none;
+    border-bottom: 2px solid black;
+    width: 60%;
+    margin: 30px 0 40px 0;
+    font-size: 20px;
+}
+
+.signup-content label {
+    margin-top: 20px;
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.signup-content button {
+    border: transparent;
+    padding: 12px 50px;
+    background-color: #3e374d;
+    color: white;
+    cursor: pointer;
+    margin-top: 30px;
+    font-weight: 600;
+    font-size: 17px;
+}

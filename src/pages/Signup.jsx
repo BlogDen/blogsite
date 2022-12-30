@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import config from "../config";
+import '../styles/Signup.css'
 
 function Signup() {
     const baseURL = process.env.NODE_ENV === 'production' ? config.production : config.local;
@@ -36,20 +37,41 @@ function Signup() {
     }
 
     return (
-        <div style={{ "margin": "20px" }} >
-            <h1 className='text-5xl font-bold mb-4 ' >Signup</h1>
+        <div className='signup-container' >
+            <div className="signup-content">
+                <h1>Signup</h1>
 
-            <form onSubmit={handleSubmit} >
-                <label>Email : </label> <br />
-                <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} className="input input-sm input-bordered input-success w-full max-w-xs" /> <br />
+                <form onSubmit={handleSubmit} >
+                    <div>
+                        <label>Email : </label> <br />
+                        <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} /> <br />
+                    </div>
 
-                <label>Password : </label> <br />
-                <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} className="input input-sm input-bordered input-success w-full max-w-xs" /> <br />
+                    <div>
+                        <label>Password : </label> <br />
+                        <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} /> <br />
+                    </div>
 
-                <button type="submit" className="btn btn-outline btn-success mt-4" >Submit</button>
-            </form>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
         </div>
     )
 }
 
 export default Signup
+
+{/* <div style={{ "margin": "20px" }} >
+<h1 className='text-5xl font-bold mb-4 ' >Signup</h1>
+
+<form onSubmit={handleSubmit} >
+    <label>Email : </label> <br />
+    <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} className="input input-sm input-bordered input-success w-full max-w-xs" /> <br />
+
+    <label>Password : </label> <br />
+    <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} className="input input-sm input-bordered input-success w-full max-w-xs" /> <br />
+
+    <button type="submit" className="btn btn-outline btn-success mt-4" >Submit</button>
+</form>
+</div> */}
