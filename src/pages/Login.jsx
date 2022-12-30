@@ -1,13 +1,18 @@
 import React, { useState, useContext } from 'react'
 import { AuthContext } from '../context/AuthContext';
+import config from "../config";
+
 function Login() {
+    const baseURL = process.env.NODE_ENV === 'production' ? config.production : config.local;
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const { user, dispatch } = useContext(AuthContext)
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const response = await fetch('http://localhost:8000/api/users/login', {
+        const response = await fetch(`${baseURL}/api/users/login`, {
+            // const response = await fetch('https://blog-server-llqa.onrender.com/api/users/login', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

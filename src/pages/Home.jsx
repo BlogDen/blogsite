@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
-// import axios from "axios";
+import config from "../config";
 import BlogCard from '../components/BlogCard';
 import { AuthContext } from '../context/AuthContext';
 import { BlogsContext } from '../context/BlogContext'
@@ -7,14 +7,16 @@ import '../styles/Home.css'
 
 function Home() {
 
-    // const [blogs, setBlogs] = useState([]);
+    const baseURL = process.env.NODE_ENV === 'production' ? config.production : config.local;
+
     const { blogs, dispatch } = useContext(BlogsContext);
     const { user, userExists } = useContext(AuthContext);
 
     useEffect(() => {
 
         const dataLoad = async () => {
-            const response = await fetch('http://localhost:8000/api/blogs/', {
+            const response = await fetch(`${baseURL}/api/blogs/`, {
+                // const response = await fetch('https://blog-server-llqa.onrender.com/api/blogs/', {
                 headers: {
                     'Authorization': `Bearer ${user.token}`
                 }
@@ -27,7 +29,6 @@ function Home() {
             }
         }
         if (user) {
-            console.log("Does user exists :", userExists)
             dataLoad()
         }
     }, [dispatch])

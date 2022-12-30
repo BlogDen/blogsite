@@ -1,11 +1,13 @@
 import React, { useEffect, useContext } from 'react'
-// import axios from "axios";
 import BlogCard from '../components/BlogCard';
 import { AuthContext } from '../context/AuthContext';
 import { BlogsContext } from '../context/BlogContext'
 import { useNavigate } from "react-router-dom";
+import config from "../config";
 
 function OwnBlogs() {
+    const baseURL = process.env.NODE_ENV === 'production' ? config.production : config.local;
+
     const navigate = useNavigate();
 
     console.log("Own blogs page")
@@ -30,7 +32,8 @@ function OwnBlogs() {
     useEffect(() => {
 
         const dataLoad = async () => {
-            const response = await fetch('http://localhost:8000/api/blogs/own-blogs', {
+            const response = await fetch(`${baseURL}/api/blogs/own-blogs`, {
+                // const response = await fetch('https://blog-server-llqa.onrender.com/api/blogs/own-blogs', {
                 headers: {
                     'Authorization': `Bearer ${user.token}`
                 }

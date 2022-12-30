@@ -6,8 +6,12 @@ import { AuthContext } from '../context/AuthContext';
 import '../styles/CreateBlog.css'
 import { useNavigate } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
+import config from "../config";
 
 function CreateBlog() {
+    const baseURL = process.env.NODE_ENV === 'production' ? config.production : config.local;
+
+
     const [uploadImg, setUploadImg] = useState(null);
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
@@ -43,7 +47,8 @@ function CreateBlog() {
         formdata.append('testImage', uploadImg)
 
         axios({
-            url: "http://localhost:8000/api/blogs/",
+            url: `${baseURL}/api/blogs/`,
+            // url: "https://blog-server-llqa.onrender.com/api/blogs/",
             method: 'POST',
             headers: {
                 'authorization': `Bearer ${user.token}`

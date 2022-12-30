@@ -9,7 +9,9 @@ function Dropdown({ handleLogoutClick }) {
             {
                 showDropdown && (
                     <div className="link-box">
-                        <div><a href="#" onCLick={handleLogoutClick} >Logout</a></div>
+                        <div><a href="#" onClick={() => {
+                            handleLogoutClick()
+                        }} >Logout</a></div>
                         <div><Link to="/create"> CreateBlog </Link></div>
                         <div><Link to="/own-blogs"> PersonelBlogs </Link></div>
                     </div>)
