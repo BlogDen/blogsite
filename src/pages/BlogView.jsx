@@ -32,7 +32,7 @@ function BlogView() {
                   <div className='blog-author-info' >
                     <img src="https://picsum.photos/id/237/40" alt="avatar" />
                     <div>
-                      <p className='author-name' >General Zod</p>
+                      <p className='author-name' >{blog.user_email.substring(0, blog.user_email.indexOf('@'))}</p>
                       <p className='posted-date' >{createdDate}</p>
                     </div>
                   </div>

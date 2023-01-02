@@ -8,13 +8,13 @@
 
 .indiv-blog {
     /* background-color: bisque; */
-    max-width: 820px;
+    max-width: 870px;
     margin: 0 auto;
     box-shadow: 0px 0px 22px 4px rgba(145, 145, 145, 1);
 }
 
 .blog-header-img-cont {
-    height: 300px;
+    height: 340px;
 }
 
 .blog-header-img-cont img {

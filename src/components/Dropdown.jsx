@@ -5,7 +5,9 @@ function Dropdown({ handleLogoutClick }) {
 
     return (
         <div className="dropdown" >
-            <button className='dropdown-btn' onClick={() => setShowDropdown(prev => !prev)} >Dropdown</button>
+            <button className='dropdown-btn' onClick={() => setShowDropdown(prev => !prev)} >Dropdown
+                <img src="/down-arrow.png" alt="dropdown icon" />
+            </button>
             {
                 showDropdown && (
                     <div className="link-box">
@@ -14,6 +16,7 @@ function Dropdown({ handleLogoutClick }) {
                         }} >Logout</a></div>
                         <div><Link to="/create"> CreateBlog </Link></div>
                         <div><Link to="/own-blogs"> PersonelBlogs </Link></div>
+
                     </div>)
             }
         </div>
