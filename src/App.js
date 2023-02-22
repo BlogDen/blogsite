@@ -20,7 +20,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
+          <Route path="/" element={<Home />} />
           <Route path="/own-blogs" element={<OwnBlogs />} />
           <Route path="/blogview/:id" element={user ? <BlogView /> : <Navigate to="/login" />} />
           <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />} />

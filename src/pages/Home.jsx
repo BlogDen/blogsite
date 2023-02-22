@@ -17,12 +17,14 @@ function Home() {
     useEffect(() => {
         const dataLoad = async () => {
             setIsLoading(true);
-            const response = await fetch(`${baseURL}/api/blogs/`, {
-                // const response = await fetch('https://blog-server-llqa.onrender.com/api/blogs/', {
-                headers: {
-                    'Authorization': `Bearer ${user.token}`
-                }
-            })
+            const response = await fetch(`${baseURL}/api/blogs/`)
+            
+            // const response = await fetch(`${baseURL}/api/blogs/`, {
+            //     // const response = await fetch('https://blog-server-llqa.onrender.com/api/blogs/', {
+            //     headers: {
+            //         'Authorization': `Bearer ${user.token}`
+            //     }
+            // })
             const data = await response.json();
 
             if (response.ok) {
@@ -31,7 +33,7 @@ function Home() {
                 setIsLoading(false)
             }
         }
-        if (user) {
+        if (true) {
             dataLoad()
         }
     }, [dispatch])
