@@ -10,6 +10,8 @@
     border-radius: 2px;
     cursor: pointer;
     transition: transform 0.2s linear;
+    gap: 20px;
+    /* overflow: hidden; */
 }
 
 .blog-card:hover {
@@ -19,6 +21,8 @@
 .blog-card-img-container {
     width: 200px;
     height: 190px;
+    /* border: 2px solid red */
+    /* margin-right: 30px; */
 }
 
 .blog-card-img {
@@ -29,7 +33,31 @@
 
 
 .blog-card h1 {
+    /* border: 2px solid green; */
     width: 70%;
-    font-size: 40px;
-    font-weight: 800;
+    font-size: 35px;
+    font-weight: 600;
+    /* margin-left: 50px; */
+}
+
+
+/* If the browser window is 600px or smaller, the background color will be lightblue: */
+
+@media only screen and (max-width: 500px) {
+    .blog-card {
+        width: 95%;
+        margin: 22px auto;
+        /* flex-direction: column; */
+        display: block;
+  }
+
+  .blog-card-img-container {
+    width: 90%;
+    }
+
+    .blog-card h1{
+        /* border: 2px solid red; */
+        margin-top: 8px;
+        width: 98%;
+    }
 }
