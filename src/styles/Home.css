@@ -1,5 +1,11 @@
 .home {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     margin-bottom: 50px;
+}
+
+.header{
+    height: 28rem;
+    margin: 0 auto;
+    margin-top: 20px;
 }

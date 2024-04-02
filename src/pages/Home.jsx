@@ -5,6 +5,8 @@ import { AuthContext } from "../context/AuthContext";
 import { BlogsContext } from "../context/BlogContext";
 import "../styles/Home.css";
 import ClipLoader from "react-spinners/ClipLoader";
+import { TypeAnimation } from 'react-type-animation'
+import Footer from "../components/Footer";
 
 function Home() {
   const baseURL =
@@ -19,12 +21,6 @@ function Home() {
       setIsLoading(true);
       const response = await fetch(`${baseURL}/api/blogs/`);
 
-      // const response = await fetch(`${baseURL}/api/blogs/`, {
-      //     // const response = await fetch('https://blog-server-llqa.onrender.com/api/blogs/', {
-      //     headers: {
-      //         'Authorization': `Bearer ${user.token}`
-      //     }
-      // })
       const data = await response.json();
 
       if (response.ok) {
@@ -44,7 +40,31 @@ function Home() {
   };
 
   return (
-    <div>
+    <div className="w-full" >
+
+      <div className='header w-[97%] flex items-center justify-center bg-gray-900 rounded-2xl mx-6 px-3'>
+        <h1 className='font-bold text-white'>
+        <TypeAnimation
+          sequence={[
+            '"The secret of getting ahead is getting started so Read!"',
+            1000,
+            '"The secret of getting ahead is getting started so Write!"',
+            1000,
+            '"The secret of getting ahead is getting started so and"',
+            1000,
+            '"The secret of getting ahead is getting started so Repeat!"',
+            1000,
+          ]}
+          speed={50}
+          style={{ fontSize: '3em' }}
+          repeat={Infinity}
+        />
+        </h1>
+        
+      </div>
+
+
+
       {isLoading ? (
         <div className="dud">
           <ClipLoader
@@ -56,11 +76,10 @@ function Home() {
         </div>
       ) : (
         <>
-          {/* <h1>Home</h1> */}
           <div
             className="home"
             style={{
-              maxWidth: "800px",
+              maxWidth: "1100px",
               margin: "0 auto",
               "margin-bottom": "50px",
             }}
@@ -70,6 +89,8 @@ function Home() {
           </div>
         </>
       )}
+
+      <Footer />
     </div>
   );
 }

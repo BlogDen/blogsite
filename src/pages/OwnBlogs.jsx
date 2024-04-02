@@ -72,7 +72,7 @@ function OwnBlogs() {
                     <ClipLoader aria-label="Loading Spinner" cssOverride={override} color={'#ca3434'} size={150} />
                 </div> : (
                     <>
-                        <h1>OwnBlogs</h1>
+                        <h1 className='text-4xl font-bold' >PROFILE</h1>
                         <div style={{ "maxWidth": "800px", "margin": "0 auto " }} >
                             {
                                 blogs && (
