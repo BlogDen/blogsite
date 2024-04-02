@@ -62,7 +62,7 @@ function CreateBlog() {
     const override = {
         display: "block",
         margin: "0 auto",
-        marginTop: "25vh"
+        marginTop: "50vh"
     };
     return (
         <div className='createblog-main-container' >

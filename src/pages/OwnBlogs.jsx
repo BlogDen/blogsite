@@ -67,7 +67,6 @@ function OwnBlogs() {
 
     return (
         <div>
-
             {
                 isLoading ? <div className='dud'>
                     <ClipLoader aria-label="Loading Spinner" cssOverride={override} color={'#ca3434'} size={150} />

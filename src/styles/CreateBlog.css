@@ -10,7 +10,7 @@
 
 
 .title-textarea {
-    width: 95%;
+    width: 100%;
     height: 40px;
     padding: 12px 20px;
     box-sizing: border-box;
@@ -22,9 +22,21 @@
     /* text-align: center; */
     margin: 0 auto;
     /* display: block; */
+    border: 2px solid black;
 }
 
 /* .dud {
     height: 100vh;
     width: 100%;
 } */
+
+.editorClassName{
+    min-height: 400px;
+    border: 2px solid black;
+}
+
+.toolbarClassName{
+    border: 2px solid black;
+    /* background-color: aqua; */
+    margin-top: 10px;
+}

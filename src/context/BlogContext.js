@@ -9,6 +9,10 @@ const blogsReducer = (state, action) => {
             return {
                 blogs: [action.payload, ...state.blogs]
             }
+        case 'DELETE_BLOG':
+            return {
+                blogs: state.blogs.filter(blog => blog._id !== action.payload)
+            };
     }
 }
 
