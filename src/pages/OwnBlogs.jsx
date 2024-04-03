@@ -11,7 +11,7 @@ function OwnBlogs() {
     const baseURL = process.env.NODE_ENV === 'production' ? config.production : config.local;
 
     const navigate = useNavigate();
-
+    
     console.log("Own blogs page")
 
     // const [blogs, setBlogs] = useState([]);
@@ -32,31 +32,29 @@ function OwnBlogs() {
 
     }, [user])
 
+    const dataLoad = async () => {
+        setIsLoading(true);
+
+        const response = await fetch(`${baseURL}/api/blogs/own-blogs`, {
+            // const response = await fetch('https://blog-server-llqa.onrender.com/api/blogs/own-blogs', {
+            headers: {
+                'Authorization': `Bearer ${user.token}`
+            }
+        })
+        const data = await response.json();
+
+        if (response.ok) {
+            // setBlogs(data.Blogs)
+            dispatch({ type: 'SET_BLOGS', payload: data.Blogs });
+            setIsLoading(false);
+        }
+    }
+
     useEffect(() => {
 
-        const dataLoad = async () => {
-            setIsLoading(true);
-
-            const response = await fetch(`${baseURL}/api/blogs/own-blogs`, {
-                // const response = await fetch('https://blog-server-llqa.onrender.com/api/blogs/own-blogs', {
-                headers: {
-                    'Authorization': `Bearer ${user.token}`
-                }
-            })
-            const data = await response.json();
-
-            if (response.ok) {
-                // setBlogs(data.Blogs)
-                dispatch({ type: 'SET_BLOGS', payload: data.Blogs });
-                setIsLoading(false);
-
-            }
-        }
         if (user) {
             dataLoad()
         }
-
-
     }, [user])
 
     const override = {
@@ -72,11 +70,11 @@ function OwnBlogs() {
                     <ClipLoader aria-label="Loading Spinner" cssOverride={override} color={'#ca3434'} size={150} />
                 </div> : (
                     <>
-                        <h1 className='text-4xl font-bold' >PROFILE</h1>
-                        <div style={{ "maxWidth": "800px", "margin": "0 auto " }} >
+                        <h1 className='text-4xl font-bold text-center mt-4' >PROFILE</h1>
+                        <div className='home mb-[50px] m-auto' >
                             {
                                 blogs && (
-                                    blogs.map((singleData) => <BlogCard singleData={singleData} />)
+                                    blogs.map((singleData) => <BlogCard singleData={singleData} comp="own-blogs" />)
                                 )
                             }
                         </div>

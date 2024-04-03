@@ -11,10 +11,10 @@ import config from "../config";
 function CreateBlog() {
     const baseURL = process.env.NODE_ENV === 'production' ? config.production : config.local;
 
-
     const [uploadImg, setUploadImg] = useState(null);
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
+    const [description, setDescription] = useState('')
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const navigate = useNavigate();
@@ -42,6 +42,7 @@ function CreateBlog() {
         let formdata = new FormData();
         formdata.append('title', title)
         formdata.append('body', content)
+        formdata.append('description', description)
         formdata.append('testImage', uploadImg)
 
         axios({
@@ -75,6 +76,8 @@ function CreateBlog() {
                         <form onSubmit={handleSubmit}>
                             <label>Title </label> <br />
                             <input className="title-textarea" type="text" required onChange={(e) => setTitle(e.target.value)} value={title} /> <br />
+                            <label>Short Description: </label> <br />
+                            <input className="title-textarea" type="text" required onChange={(e) => setDescription(e.target.value)} value={description} /> <br />
 
                             {/* <label>Body </label> <br />
                         <input type="text" required onChange={(e) => setBody(e.target.value)} value={body} /> <br /> */}

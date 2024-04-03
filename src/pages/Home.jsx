@@ -39,10 +39,12 @@ function Home() {
     marginTop: "25vh",
   };
 
-  return (
-    <div className="w-full" >
+  // console.log("BLOGS IS ", blogs)
 
-      <div className='header w-[97%] flex items-center justify-center bg-gray-900 rounded-2xl mx-6 px-3'>
+  return (
+    <div className="w-full px-5" >
+
+      <div className='header w-[98%] flex items-center justify-center bg-gray-900 rounded-2xl px-3'>
         <h1 className='font-bold text-white'>
         <TypeAnimation
           sequence={[
@@ -77,12 +79,12 @@ function Home() {
       ) : (
         <>
           <div
-            className="home"
-            style={{
-              maxWidth: "1100px",
-              margin: "0 auto",
-              "margin-bottom": "50px",
-            }}
+            className="home mb-[50px] m-auto"
+            // style={{
+            //   maxWidth: "1100px",
+            //   margin: "0 auto",
+            //   "margin-bottom": "50px",
+            // }}
           >
             {blogs &&
               blogs.map((singleData) => <BlogCard singleData={singleData} />)}
